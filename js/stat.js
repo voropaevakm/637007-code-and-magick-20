@@ -43,7 +43,7 @@ var getColor = function (player) {
     var barColor = COLOR_WE;
   } else {
     barColor = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
-    }
+  }
   return barColor;
 };
 
