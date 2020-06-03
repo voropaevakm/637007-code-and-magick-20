@@ -8,19 +8,18 @@ var CLOUD_GAP = 10;
 var GAP = 50;
 var FONT_GAP = 15;
 var TEXT_HEIGHT = 15;
-var TEXT_WIDTH = 50;
 var BAR_WIDTH = 40;
 var MAX_BAR_HEIGHT = 150;
 var NAME_WE = 'Вы';
 var COLOR_WE = 'rgba(255, 0, 0, 1)';
 var barHeight = CLOUD_HEIGHT - 2 * FONT_GAP + TEXT_HEIGHT;
 
-var renderCloud = function(ctx, x, y, color) {
+var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-var getMaxElement = function(arr) {
+var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
   for (var i = 0; i < arr.length; i++) {
@@ -31,7 +30,7 @@ var getMaxElement = function(arr) {
   return maxElement;
 };
 
-var renderText = function(ctx, x, y, font, color) {
+var renderText = function (ctx, x, y, font, color) {
   ctx.font = font;
   ctx.fillStyle = color;
   ctx.textBaseline = 'hanging';
@@ -39,7 +38,7 @@ var renderText = function(ctx, x, y, font, color) {
   ctx.fillText('Список результатов:', 2 * FONT_GAP + CLOUD_X, 2 * FONT_GAP + CLOUD_Y);
 };
 
-var getColor = function(player) {
+var getColor = function (player) {
     if (player === NAME_WE) {
       var barColor = COLOR_WE;
     }
