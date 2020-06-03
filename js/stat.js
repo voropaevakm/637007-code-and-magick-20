@@ -39,16 +39,16 @@ var renderText = function (ctx, x, y, font, color) {
 };
 
 var getColor = function (player) {
-    if (player === NAME_WE) {
-      var barColor = COLOR_WE;
-    }
-    else {
-      barColor = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
-    }
-    return barColor;
-  };
+  if (player === NAME_WE) {
+    var barColor = COLOR_WE;
+  }
+  else {
+    barColor = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
+  }
+  return barColor;
+};
 
-window.renderStatistics = function(ctx, players, times) {
+window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + CLOUD_GAP, CLOUD_Y + CLOUD_GAP, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
   renderText(ctx, CLOUD_X, CLOUD_Y, '16px PT Mono', '#000');
@@ -67,7 +67,7 @@ window.renderStatistics = function(ctx, players, times) {
     ctx.fillText(Math.floor(times[i]), CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight - gisHeight - GAP);
     ctx.fillText(players[i], CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight);
     ctx.fillStyle = getColor(players[i]);
-    ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight - FONT_GAP, BAR_WIDTH, - gisHeight);
+    ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight - FONT_GAP, BAR_WIDTH, -gisHeight);
     ctx.fillStyle = '#000';
   }
 };
