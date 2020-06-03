@@ -41,10 +41,9 @@ var renderText = function (ctx, x, y, font, color) {
 var getColor = function (player) {
   if (player === NAME_WE) {
     var barColor = COLOR_WE;
-  }
-  else {
+  } else {
     barColor = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
-  }
+    }
   return barColor;
 };
 
