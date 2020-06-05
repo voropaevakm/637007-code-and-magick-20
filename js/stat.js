@@ -9,10 +9,10 @@ var GAP = 50;
 var FONT_GAP = 15;
 var TEXT_HEIGHT = 15;
 var BAR_WIDTH = 40;
-var MAX_BAR_HEIGHT = 150;
+var BAR_Y = CLOUD_Y + 225;
 var NAME_WE = 'Вы';
 var COLOR_WE = 'rgba(255, 0, 0, 1)';
-var barHeight = CLOUD_HEIGHT - 2 * FONT_GAP + TEXT_HEIGHT;
+var barHeight = 150;
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
@@ -57,16 +57,12 @@ window.renderStatistics = function (ctx, players, times) {
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < players.length; i++) {
-    var gisHeight = (barHeight * times[i] / (maxTime));
+    var gisHeight = (barHeight * times[i] / maxTime);
 
-    if (gisHeight > MAX_BAR_HEIGHT) {
-      gisHeight = MAX_BAR_HEIGHT;
-    }
-
-    ctx.fillText(Math.floor(times[i]), CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight - gisHeight - GAP);
-    ctx.fillText(players[i], CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight);
+    ctx.fillText(Math.floor(times[i]), CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight - gisHeight + GAP + FONT_GAP);
+    ctx.fillText(players[i], CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight + 2 * GAP);
     ctx.fillStyle = getColor(players[i]);
-    ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, barHeight - FONT_GAP, BAR_WIDTH, -gisHeight);
+    ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, BAR_Y, BAR_WIDTH, -gisHeight);
     ctx.fillStyle = '#000';
   }
 };
