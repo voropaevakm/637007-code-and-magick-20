@@ -7,7 +7,6 @@ var CLOUD_Y = 10;
 var CLOUD_GAP = 10;
 var GAP = 50;
 var FONT_GAP = 15;
-var TEXT_HEIGHT = 15;
 var BAR_WIDTH = 40;
 var BAR_Y = CLOUD_Y + 225;
 var NAME_WE = 'Вы';
